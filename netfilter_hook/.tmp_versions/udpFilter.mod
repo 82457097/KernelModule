@@ -1,3 +1,3 @@
-/home/qianwanjun/KernerMode/netfilter_hook/udpFilter.ko
-/home/qianwanjun/KernerMode/netfilter_hook/udpFilter.o
+/home/qianwanjun/myGit/KernelModule/netfilter_hook/udpFilter.ko
+/home/qianwanjun/myGit/KernelModule/netfilter_hook/udpFilter.o
 

@@ -7,6 +7,7 @@
 #include <linux/ip.h>
 #include <linux/vmalloc.h>
 
+
 // Define some structs that will be used
 static struct nf_hook_ops nfho;
 struct udphdr *udp_header;
@@ -144,7 +145,7 @@ int checkSum(struct iphdr *iphr, struct udphdr *udphr)
     int i ;
     for (i = 0; i < sumcnt; i++)
     {
-        printk("One of the members of the check: %02x\n", sumarr[i]);
+       // printk("One of the members of the check: %02x\n", sumarr[i]);
         //printk("One of the members of the check: %d\n", sumarr[i]);
         sum += sumarr[i];
         if (sum > MAX_NUM)
@@ -181,8 +182,15 @@ unsigned int my_hook_func(void *priv, struct sk_buff *skb,
 
     if (ip_header->protocol == 17)
     {
-        printk("ip_saddr: %02x\n",  ip_header->saddr);
-        printk("ip_daddr: %02x\n",  ip_header->daddr);
+		struct in_addr ipaddr;
+        
+//        ipaddr.s_addr = ip_header->saddr;
+//        printk("ip_saddr: %02x\n",  inet_ntoa(ipaddr));
+//		ipaddr.s_addr = ip_header->daddr;
+//        printk("ip_daddr: %02x\n",  inet_ntoa(ipaddr));
+		
+		printk(KERN_INFO "ip_saddr: %d\n", ip_header->saddr);
+		printk(KERN_INFO "ip_daddr: %d\n", ip_header->daddr);
         // 这里是udp头
         udp_header = (struct udphdr *)skb_transport_header(skb);
         printk(KERN_INFO "Got udp packet \n");

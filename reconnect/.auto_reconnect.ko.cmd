@@ -1,0 +1,1 @@
+cmd_/home/qianwanjun/myGit/KernelModule/reconnect/auto_reconnect.ko := ld -r -m elf_x86_64 -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/qianwanjun/myGit/KernelModule/reconnect/auto_reconnect.ko /home/qianwanjun/myGit/KernelModule/reconnect/auto_reconnect.o /home/qianwanjun/myGit/KernelModule/reconnect/auto_reconnect.mod.o ;  true
